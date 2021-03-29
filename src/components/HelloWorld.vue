@@ -1,6 +1,7 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
+    <h1>{{ umur }}</h1>
     <p>
       For a guide and recipes on how to configure / customize this project,<br>
       check out the
@@ -31,12 +32,27 @@
 </template>
 
 <script>
+import axios from 'axios';
+
+
 export default {
   name: 'HelloWorld',
   props: {
     msg: String
+  },
+  data(){
+    return{
+      umur : 21,
+      pokemon : []
+    }
+  },
+   mounted () {
+    axios
+      .get('https://pokeapi.co/api/v2/pokemon?limit=100&offset=200')
+      .then(response => (this.pokemon = response.data))
   }
 }
+
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
