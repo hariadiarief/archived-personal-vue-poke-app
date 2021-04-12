@@ -1,18 +1,12 @@
 <template>
-  <Pokemon/>
+  <router-view />
 </template>
 
 <script>
-import Pokemon from './components/Pokemon'
-
 export default {
-  name: 'App',
-  components: {
-    Pokemon
-  }
-}
+  name: "App",
+};
 </script>
 
 <style>
-
 </style>
